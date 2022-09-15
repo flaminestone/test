@@ -23,10 +23,5 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: qwe
-        uses: emibcn/badge-action@v1.2.1
-        with:
-          label: 'Test coverage'
-          status: '53.4%'
-          color: 'blue,555,daf'
-          path: '.github/badges/coverage.svg'
+    - name: Badge Action
+      uses: emibcn/badge-action@v1.2.4
