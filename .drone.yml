@@ -1,0 +1,14 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: trigger
+    image: ubuntu
+    commands:
+      - echo "asdasdasd"
+trigger:
+  event:
+    - cron
+  cron:
+    - daily_notification
