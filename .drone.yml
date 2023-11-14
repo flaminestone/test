@@ -7,8 +7,4 @@ steps:
     image: ubuntu
     commands:
       - echo "asdasdasd"
-trigger:
-  event:
-    - cron
-  cron:
-    - daily_notification
+      
