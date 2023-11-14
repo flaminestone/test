@@ -8,5 +8,5 @@ steps:
     commands:
       - echo "asdasdasd"
       - ls -la
-      -  pwd
+      - sleep 100
       
