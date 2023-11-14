@@ -7,4 +7,6 @@ steps:
     image: ubuntu
     commands:
       - echo "asdasdasd"
+      - ls -la
+      - ls /
       
