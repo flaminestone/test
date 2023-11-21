@@ -10,10 +10,10 @@ jobs:
   container-test-job:
     runs-on: self-hosted
     container:
-      image: ubuntu:latest
+      image: ruby:latest
     steps:
       - name: PWD check
-        run: sleep 300
+        run: sleep 3000
   
 
     services:
@@ -23,7 +23,7 @@ jobs:
           GRID_MAX_SESSION: 5
           START_XVFB: false
         ports:
-          - 6379:6379
+          - 4444:4444
       chrome:
         image: selenium/node-chrome:4.2.1
         env:
