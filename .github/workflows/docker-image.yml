@@ -13,6 +13,6 @@ jobs:
       image: ubuntu:latest
     steps:
       - name: PWD check
-        run: pwd
+        run: sleep 300
 
 
