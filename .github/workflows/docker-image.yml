@@ -22,6 +22,8 @@ jobs:
         env:
           GRID_MAX_SESSION: 5
           START_XVFB: false
+        ports:
+          - 6379:6379
       chrome:
         image: selenium/node-chrome:4.2.1
         env:
