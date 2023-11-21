@@ -21,7 +21,7 @@ jobs:
         image: selenium/hub:4.2.1
         env:
           GRID_MAX_SESSION: 5
-          START_XVFB: false
+          START_XVFB: true
         ports:
           - 4444:4444
       chrome:
