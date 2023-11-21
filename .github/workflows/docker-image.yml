@@ -22,6 +22,7 @@ jobs:
         env:
           GRID_MAX_SESSION: 5
           START_XVFB: true
+        options: --shm-size=6gb
         ports:
           - 4444:4444
       chrome:
