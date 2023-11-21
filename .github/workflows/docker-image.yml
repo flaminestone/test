@@ -14,5 +14,22 @@ jobs:
     steps:
       - name: PWD check
         run: sleep 300
+  
 
-
+    services:
+      selenium:
+        image: selenium/hub:4.2.1
+        env:
+          GRID_MAX_SESSION: 5
+          START_XVFB: false
+      chrome:
+        image: selenium/node-chrome:4.2.1
+        env:
+          HUB_PORT_4444_TCP_ADDR: selenium
+          HUB_PORT_4444_TCP_PORT: 4444
+          SE_NODE_MAX_SESSIONS: 5
+          SE_NODE_OVERRIDE_MAX_SESSIONS: true
+          SE_EVENT_BUS_HOST: selenium
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+          
