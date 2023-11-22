@@ -33,17 +33,21 @@ jobs:
     runs-on: self-hosted
     container:
       image: ruby:latest
+    env:
+      TESTRAIL_URL: https://idwell.testrail.io/
+      TESTRAIL_USER: user
+      TESTRAIL_PASSWORD: pw
+      HUB_HOST: selenium
+      TZ: Europe/Moscow
+      RETRY_COUNT: 2
+      TEST_ENV: ${{ github.event.inputs.browser }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: investigate
         run: |
-          pwd
-          whoami
-          ls -la
-          id -u
-          bundler install
-          ruby qq.rb
+          echo $TEST_ENV
   
     services:
       selenium:
