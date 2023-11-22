@@ -36,12 +36,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
-        fetch-depth: 1
-        fetch-tags: false
-        show-progress: true
-        lfs: false
-        submodules: false
-        set-safe-directory: true 
+        with:
+          clean: true
+          sparse-checkout-cone-mode: true
+          fetch-depth: 1
+          fetch-tags: false
+          show-progress: true
+          lfs: false
+          submodules: false
+          set-safe-directory: true 
       - name: PWD check
         run: bundler install && ruby qq.rb
   
