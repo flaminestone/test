@@ -41,7 +41,7 @@ jobs:
           ls -la
           id -u
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
   
     services:
       selenium:
