@@ -19,6 +19,14 @@ on:
         type: string
         default: ''
         required: false
+      browser:
+        type: choice
+        description: Browser
+        options: 
+        - Chrome
+        - Firefox
+        default: 'Chrome'
+
 
 jobs:
   container-test-job:
@@ -27,9 +35,8 @@ jobs:
       image: ruby:latest
     steps:
       - name: PWD check
-        run: sleep 3000
+        run: bundler install && ruby qq.rb
   
-
     services:
       selenium:
         image: selenium/hub:4.2.1
@@ -39,8 +46,21 @@ jobs:
         options: --shm-size=6gb
         ports:
           - 4444:4444
+          - 7900:7900
+          - 4443:4443
+          - 4442:4442
       chrome:
         image: selenium/node-chrome:4.2.1
+        env:
+          HUB_PORT_4444_TCP_ADDR: selenium
+          HUB_PORT_4444_TCP_PORT: 4444
+          SE_NODE_MAX_SESSIONS: 5
+          SE_NODE_OVERRIDE_MAX_SESSIONS: true
+          SE_EVENT_BUS_HOST: selenium
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+      firefox:
+        image: selenium/node-firefox:111.0
         env:
           HUB_PORT_4444_TCP_ADDR: selenium
           HUB_PORT_4444_TCP_PORT: 4444
