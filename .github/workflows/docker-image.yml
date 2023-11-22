@@ -42,6 +42,7 @@ jobs:
           whoami
           ls -la
           id -u
+          bundler install
           ruby qq.rb
   
     services:
