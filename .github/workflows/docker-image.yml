@@ -32,13 +32,16 @@ jobs:
   container-test-job:
     runs-on: self-hosted
     container:
-      image: ruby:latest
-      options: --privileged
+      image: ubuntu:latest
     steps:
+      - name: investigate
+        run: |
+          pwd
+          whoami
+          ls -la
+          id -u
       - name: Checkout
         uses: actions/checkout@v2
-      - name: PWD check
-        run: bundler install && ruby qq.rb
   
     services:
       selenium:
