@@ -1,21 +1,24 @@
-name: Docker Image CI
+name: Run tests
 
 on: 
   workflow_dispatch:
     inputs:
       name:
         type: choice
-        description: Who to greet
+        description: Milestone
         options: 
-        - monalisa
-        - cschleiden
-      message:
-        required: true
-      use-emoji:
+        - Smoke
+        - Daily check
+        - Custom
+        default: 'Custom'
+      use-testrail:
         type: boolean
-        description: Include 🎉🤣 emojis
-      environment:
-        type: environment
+        description: Send results to testrail
+        default: 'true'
+      spec-opts:
+        type: string
+        default: ''
+        required: false
 
 jobs:
   container-test-job:
